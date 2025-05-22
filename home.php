@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
         <link rel="stylesheet" href="styles.css">
 
-        <title>Login</title>
+        <title>Home</title>
         
     </head>
 
@@ -18,26 +18,8 @@
 
         <?php
             include_once('valida_sessao.php');
+            include_once('assets/navbar.php');
         ?>
-        
-        <nav class="navbar navbar-expand-sm" style="background-color: #DCDCDC;">
-            <div class="container-fluid">
-
-                <ul class="navbar-nav">
-                    <a class="navbar-brand"><i class="bi bi-tools" href="home.php"></i> HelpDesk</a>
-                    <li class="nav-item">
-                        <a class="nav-link" href="abrir_chamado.php">Enviar</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="consultar_chamado.php">Consultar</a>
-                    </li>
-                    <li class="nav-item" id="logoff">
-                        <a class="nav-link" href="sair_sessao.php" style="font-weight: bold;"><i class="bi bi-box-arrow-right"></i> Sair</a>
-                    </li>
-                </ul>
-
-            </div>
-        </nav>
 
         <h1 class="text-center m-5">Bem vindo ao Help Desk!</h1>
 
@@ -49,7 +31,7 @@
                 </a>
             </div>
             <div class="container opcoes">
-                <a href="" class="btn btn-primary">
+                <a href="consultar_chamado.php" class="btn btn-primary">
                     <i class="bi bi-book-half" style="font-size: 60px;"></i>
                     <p>Consultar chamados</p>
                 </a>
@@ -60,7 +42,6 @@
                     <p>Sair</p>
                 </a>
             </div>
-
         </div>
 
 

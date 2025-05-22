@@ -1,0 +1,3 @@
+Impressora não liga|Impressora|Ao tentar ligar a impressora, pressionando o botão, a mesma não liga.
+Internet oscilando|Rede|A internet na parte da tarde está caindo e voltando toda hora.
+Formatação de computador|Outros|Formatar computador com lentidão.

@@ -8,24 +8,21 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
         <link rel="stylesheet" href="styles.css">
+        <script src="scripts.js"></script>
 
         <title>Login</title>
         
     </head>
 
-    <body>
+    <body onload="verificaCamposLogin()">
         
         <?php
+            include_once("assets/navbar.php");
+
             if (isset($_GET['login'])) {
                 $erro_login = $_GET['login'];
             }
         ?>
-
-        <nav class="navbar" style="background-color: #DCDCDC;">
-            <div class="container-fluid">
-                <a class="navbar-brand"><i class="bi bi-tools"></i> HelpDesk</a>
-            </div>
-        </nav>
 
         <div class="container mt-5" id="pagina-login">
             <form id="form-login" action="valida_formulario.php" method="POST">
@@ -39,12 +36,12 @@
                     <input id='senha' name="senha" type="password" class="form-control">
                 </div>
 
-                <?php if (isset($erro_login) && $erro_login === 'erro1') { ?>
+                <?php if (isset($erro_login) && $erro_login === 'erro1'): ?>
                 <div class="text-danger text-center mt-2" style="font-weight:bold;">Usuário ou senha incorretos!</div>
-                <?php }
-                    else if(isset($erro_login) && $erro_login === 'erro2'){?>
-                <div class="text-danger text-center mt-2" style="font-weight:bold;">Necessário fazer login para acessar o site!</div>
-                <?php } ?>
+
+                <?php elseif(isset($erro_login) && $erro_login === 'erro2'): ?>
+                <div class="text-danger text-center mt-2" style="font-weight:bold;">Faça login para continuar a acessar o site!</div>
+                <?php endif; ?>
 
                 <div class="row mt-2">
                     <button class="btn btn-success form-control mt-3 ">Login</button>
@@ -53,7 +50,6 @@
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
-        <script src="scripts.js"></script>
 
     </body>
 

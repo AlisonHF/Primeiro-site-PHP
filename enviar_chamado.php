@@ -1,9 +1,22 @@
 <?php
 
-    $dados = $_POST;
+    $arquivo = fopen('chamados.txt', 'a');
 
-    foreach($dados as $id => $dado) {
-        echo $id . " / " . $dado . "<br/>";
+    $titulo = str_replace('|', '-', $_POST['titulo']);
+    $tipo = str_replace('|', '-', $_POST['tipo']);
+    $descricao = str_replace('|', '-', $_POST['descricao']);
+
+    if ($titulo === '' || $tipo === '' || $descricao === '') {
+        header("Location: abrir_chamado.php?status=0");
+    }
+    else {
+        $chamado = $titulo . "|" . $tipo . "|" . $descricao . PHP_EOL;
+
+        fwrite($arquivo, $chamado);
+
+        fclose($arquivo);
+
+        header("Location: abrir_chamado.php?status=1");
     }
 
 ?>

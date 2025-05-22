@@ -1,9 +1,29 @@
-const PARAMS = new URLSearchParams(window.location.search) /* Construtor que pega os valores vindo de GET e POST da página */;
+// Verifica e muda de cor os campos de login
+function verificaCamposLogin() {
+    const PARAMS_LOGIN = new URLSearchParams(window.location.search); /* Construtor que pega os valores vindo de GET e POST da página */;
 
-campo_email = document.getElementById('email');
-campo_senha = document.getElementById('senha')
+    campo_email = document.getElementById('email');
+    campo_senha = document.getElementById('senha');
 
-if (PARAMS.get('login') === 'erro1' || PARAMS.get('login') === 'erro2') {
-    campo_email.style = 'border: 2px solid red;'
-    campo_senha.style = 'border: 2px solid red;'
+    if (PARAMS_LOGIN.get('login') === 'erro1' || PARAMS_LOGIN.get('login') === 'erro2') {
+        campo_email.style = 'border: 2px solid red;';
+        campo_senha.style = 'border: 2px solid red;';
+    }
+}
+
+// Verifica e muda de cor os campos de chamado
+function verificaCamposAbrirChamado() {
+    const PARAMS_CHAMADO = new URLSearchParams(window.location.search);
+
+    campo_titulo = document.getElementById('titulo');
+    campo_tipo = document.getElementById('tipo');
+    campo_descricao = document.getElementById('descricao');
+
+    if (PARAMS_CHAMADO.get('status') === '0') {
+        campo_titulo.style = 'border: 2px solid red;';
+        campo_tipo.style = 'border: 2px solid red;';
+        campo_descricao.style = 'border: 2px solid red;';
+    }
+
+    console.log(`${campo_titulo}, ${campo_tipo}, ${campo_descricao}`);
 }
