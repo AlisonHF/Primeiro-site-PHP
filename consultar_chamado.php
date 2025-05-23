@@ -37,12 +37,17 @@
             foreach($chamados as $chamado){
                 $chamado_array = array();
                 $chamado_array = explode('|', $chamado); // Divide a linha nos | e coloca cada valor em um array
-                if (count($chamado_array) < 3) { // Para pular a linha em branco
+                if (count($chamado_array) < 3 ) { // Para pular a linha em branco
                     continue;
                 }
+
+                if ($_SESSION['tipo_usuario'] === '1' && $chamado_array[3] != $_SESSION['id_usuario'] ) {
+                        continue;
+                }
+
                 else {
         ?>
-        <div class="card">
+        <div class="card m-3">
             <div class="card-body">
                 <h5 class="card-title"><?= $chamado_array[0] ?></h5>
                 <h6 class="card-subtitle mb-2"><?= $chamado_array[1] ?></h6>

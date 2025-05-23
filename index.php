@@ -25,7 +25,7 @@
         ?>
 
         <div class="container mt-5" id="pagina-login">
-            <form id="form-login" action="valida_formulario.php" method="POST">
+            <form id="form-login" action="valida_login.php" method="POST">
                 <h1 class="mb-5 text-center">Login</h1>
                 <div class="row mt-2">
                     <label class="form-label">Email:</label>

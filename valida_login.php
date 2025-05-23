@@ -5,9 +5,9 @@
     $_SESSION['autenticado'] = 'nao';
 
     $contas_cadastradas = [
-        ['email' => 'teste@helpdesk.com', 'senha' => 'admin'],
-        ['email' => 'usuario@hotmail.com', 'senha' => '12345'],
-        ['email' => 'usuarioteste@outlook.com', 'senha' => 'teste'],
+        ['id_usuario' => '0',  'email' => 'teste@helpdesk.com', 'senha' => 'admin', 'tipo_usuario' => '0'],
+        ['id_usuario' => '1', 'email' => 'usuario@hotmail.com', 'senha' => '12345', 'tipo_usuario' => '1'],
+        ['id_usuario' => '2', 'email' => 'usuarioteste@outlook.com', 'senha' => 'teste', 'tipo_usuario' => '1'],
     ];
 
     $email = $_POST['email'];
@@ -16,6 +16,8 @@
     foreach($contas_cadastradas as $id => $conta) {
         if ($conta['email'] == $email && $conta['senha'] == $senha) {
             $usuario_autenticado = true;
+            $_SESSION['id_usuario'] = $conta['id_usuario'];
+            $_SESSION['tipo_usuario'] = $conta['tipo_usuario'];
         }
     }
 

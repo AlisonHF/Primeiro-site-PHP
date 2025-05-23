@@ -1,3 +1,4 @@
-Impressora não liga|Impressora|Ao tentar ligar a impressora, pressionando o botão, a mesma não liga.
-Internet oscilando|Rede|A internet na parte da tarde está caindo e voltando toda hora.
-Formatação de computador|Outros|Formatar computador com lentidão.
+Impressora não liga|Impressora|A impressora não liga.|0
+Formatação de computador|Outros|Formatar computador com lentidão.|0
+Internet caindo|Rede|Internet caiu o dia todo.|1
+Monitor desliga sozinho|Hardware|O monitor está desligando sozinho.|2
