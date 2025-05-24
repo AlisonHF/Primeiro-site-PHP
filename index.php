@@ -7,8 +7,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-        <link rel="stylesheet" href="styles.css">
-        <script src="scripts.js"></script>
+        <link rel="stylesheet" href="assets/styles.css">
+        <script src="assets/scripts.js"></script>
 
         <title>Login</title>
         
@@ -25,7 +25,7 @@
         ?>
 
         <div class="container mt-5" id="pagina-login">
-            <form id="form-login" action="valida_login.php" method="POST">
+            <form id="form-login" action="scripts/valida_login.php" method="POST">
                 <h1 class="mb-5 text-center">Login</h1>
                 <div class="row mt-2">
                     <label class="form-label">Email:</label>

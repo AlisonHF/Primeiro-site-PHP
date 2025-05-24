@@ -1,0 +1,61 @@
+body {
+    background-color: #121212;
+    color: #F5F5F5;
+}
+
+.nav-link {
+    color: white;
+    margin-left: 15px;
+}
+
+.opcoes-home {
+    padding: 20px;
+    border-radius: 20px;
+    margin: 0px;
+    background-color: #3C3C3C;
+}
+
+@media (max-width: 1200px){
+    .opcoes-home {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.botoes-opcoes-home {
+    margin: 10px;
+    min-width: 300px;
+    max-width: 250px;
+}
+
+.linha-divisoria {
+    margin: 48px;
+    border: none;
+    height: 2px;
+    background-color: #F5F5F5;
+    opacity: 1;
+}
+
+#logoff {
+    position: absolute;
+    right: 10px;
+}
+
+#pagina-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#form-login {
+    width: 600px;
+    height: auto;
+    border-radius: 20px;
+    padding: 30px;
+    background-color:#3C3C3C;
+}
+
+#form-login label {
+    font-size: 18px;
+}

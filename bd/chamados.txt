@@ -2,3 +2,6 @@ Impressora não liga|Impressora|A impressora não liga.|0
 Formatação de computador|Outros|Formatar computador com lentidão.|0
 Internet caindo|Rede|Internet caiu o dia todo.|1
 Monitor desliga sozinho|Hardware|O monitor está desligando sozinho.|2
+Titulo teste|Outros|testre 123|0
+Formatação de computador|Hardware|Formatar computador|1
+Titulo teste agora|Hardware|Teste agora|0

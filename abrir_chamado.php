@@ -8,8 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-        <link rel="stylesheet" href="styles.css">
-        <script src="scripts.js"></script>
+        <link rel="stylesheet" href="assets/styles.css">
+        <script src="assets/scripts.js"></script>
         
         <title>Abrir chamado</title>
         
@@ -18,7 +18,7 @@
     <body onload="verificaCamposAbrirChamado()">
 
         <?php
-            include_once('valida_sessao.php');
+            include_once('scripts/valida_sessao.php');
             include_once('assets/navbar.php');
 
             if(isset($_GET['status'])) {
@@ -26,27 +26,22 @@
             }
 
         ?>
-        
-        <div>
-            
-            <form action="enviar_chamado.php" method="POST" class="container mt-3 form-control p-5">
-                <h1 class="mb-3">Formulário de chamado</h1>
-                <label class="form-label">Titulo</label>
-                <input id="titulo" class="form-control" name="titulo" type="text" placeholder="Ex: Impressora não liga">
-                <label class="form-label">Tipo</label>
-                <select id="tipo" class="form-control" name="tipo">
-                    <option disabled="disabled" selected="selected">Selecione uma opção</option>
-                    <option value="Hardware">Hardware</option>
-                    <option value="Impressora">Impressora</option>
-                    <option value="Rede">Rede</option>
-                    <option value="Outros">Outros</option>
-                </select>
-                <label class="form-label">Descrição</label>
-                <textarea id="descricao" name="descricao" type="text" class="form-control" rows="5" placeholder="Ex: Ao apertar o botão de ligar, a impressora não liga..."></textarea>
-                <button class="btn btn-success mt-3" type="submit">Enviar chamado</button>
-            </form>
-
-        </div>
+        <form action="scripts/enviar_chamado.php" method="POST" class="container mt-5 form-control p-5 bg-light text-dark">
+            <h1 class="mb-3">Formulário de chamado</h1>
+            <label class="form-label">Titulo</label>
+            <input id="titulo" class="form-control" name="titulo" type="text" placeholder="Ex: Impressora não liga">
+            <label class="form-label">Tipo</label>
+            <select id="tipo" class="form-control" name="tipo">
+                <option disabled="disabled" selected="selected">Selecione uma opção</option>
+                <option value="Hardware">Hardware</option>
+                <option value="Impressora">Impressora</option>
+                <option value="Rede">Rede</option>
+                <option value="Outros">Outros</option>
+            </select>
+            <label class="form-label">Descrição</label>
+            <textarea id="descricao" name="descricao" type="text" class="form-control" rows="5" placeholder="Ex: Ao apertar o botão de ligar, a impressora não liga..."></textarea>
+            <button class="btn btn-success mt-3" type="submit">Enviar chamado</button>
+        </form>
 
         <div id="modal" class="modal" tabindex="-1">
             <div class="modal-dialog">
@@ -58,7 +53,7 @@
                 <div class="modal-body" id="corpo-modal">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ok</button>
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Ok</button>
                 </div>
                 </div>
             </div>

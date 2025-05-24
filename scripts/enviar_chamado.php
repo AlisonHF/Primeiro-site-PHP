@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    $arquivo = fopen('chamados.txt', 'a');
+    $arquivo = fopen('../bd/chamados.txt', 'a');
     
     $id_usuario = $_SESSION['id_usuario'];
     $titulo = str_replace('|', '-', $_POST['titulo']);
@@ -9,7 +9,7 @@
     $descricao = str_replace('|', '-', $_POST['descricao']);
 
     if ($titulo === '' || $tipo === '' || $descricao === '') {
-        header("Location: abrir_chamado.php?status=0");
+        header("Location: ../abrir_chamado.php?status=0");
     }
     else {
         $chamado = $titulo . "|" . $tipo . "|" . $descricao . "|". $id_usuario .PHP_EOL;
@@ -18,7 +18,7 @@
 
         fclose($arquivo);
 
-        header("Location: abrir_chamado.php?status=1");
+        header("Location: ../abrir_chamado.php?status=1");
     }
 
 ?>

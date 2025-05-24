@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm" style="background-color: #DCDCDC;">
+<nav class="navbar navbar-expand-sm" data-bs-theme="dark" style="background-color: #3C3C3C;">
     <div class="container-fluid">
 
         <ul class="navbar-nav">
@@ -14,13 +14,16 @@
                     if ($autenticado === 'sim' && $autenticado != null){
             ?>
             <li class="nav-item">
+                <a class="nav-link" href="home.php">Home</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="abrir_chamado.php">Enviar</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="consultar_chamado.php">Consultar</a>
             </li>
             <li class="nav-item" id="logoff">
-                <a class="nav-link" href="sair_sessao.php" style="font-weight: bold;"><i class="bi bi-box-arrow-right"></i> Sair</a>
+                <a class="nav-link" href="scripts/sair_sessao.php" style="font-weight: bold;"><i class="bi bi-box-arrow-right"></i> Sair</a>
             </li>
             <?php }} ?>
         </ul>
