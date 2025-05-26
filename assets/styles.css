@@ -37,6 +37,10 @@ body {
     opacity: 1;
 }
 
+.selecionado {
+    font-weight: bold;
+}
+
 #logoff {
     position: absolute;
     right: 10px;

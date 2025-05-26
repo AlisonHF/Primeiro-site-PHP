@@ -27,3 +27,26 @@ function verificaCamposAbrirChamado() {
 
     console.log(`${campo_titulo}, ${campo_tipo}, ${campo_descricao}`);
 }
+
+
+// Destaca a seção atual na navbar
+function destacaSecaoNavbar() {
+    janela_atual = window.location.pathname;
+
+    secoes = {
+        home: document.getElementById('link-home'),
+        abrir: document.getElementById('link-enviar'),
+        consultar: document.getElementById('link-consultar'),
+    }
+
+    if (janela_atual === '/primeiro-site-php/home.php') {
+        secoes.home.className += ' selecionado';
+    }
+    else if (janela_atual === '/primeiro-site-php/abrir_chamado.php') {
+        secoes.abrir.className += ' selecionado';
+    }
+    else if (janela_atual === '/primeiro-site-php/consultar_chamado.php') {
+        secoes.consultar.className += ' selecionado';
+    }
+
+}

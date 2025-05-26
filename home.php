@@ -25,24 +25,28 @@
 
         <hr class="linha-divisoria">
 
-        <div class="container text-center" id='menu-opcoes'>
+        <main>
 
-            <div class="container opcoes-home">
-                    <a href="abrir_chamado.php" class="btn botoes-opcoes-home" style="background-color:#1E90FF" data-bs-theme="dark">
-                        <i class="bi bi-send-fill" style="font-size: 40px;"></i>
-                        <p>Enviar chamado</p>
-                    </a>
-                    <a href="consultar_chamado.php" class="btn botoes-opcoes-home" style="background-color:#8A2BE2 " data-bs-theme="dark">
-                        <i class="bi bi-book-half" style="font-size: 40px;"></i>
-                        <p>Consultar chamados</p>
-                    </a>
-                    <a href="index.php" class="btn botoes-opcoes-home" style="background-color: #FF4C4C" data-bs-theme="dark">
-                        <i class="bi bi-door-open" style="font-size: 40px;"></i>
-                        <p>Sair</p>
-                    </a>
+            <div class="container text-center" id='menu-opcoes'>
+
+                <div class="container opcoes-home">
+                        <a href="abrir_chamado.php" class="btn botoes-opcoes-home" style="background-color:#1E90FF" data-bs-theme="dark">
+                            <i class="bi bi-send-fill" style="font-size: 40px;"></i>
+                            <p>Enviar chamado</p>
+                        </a>
+                        <a href="consultar_chamado.php" class="btn botoes-opcoes-home" style="background-color:#8A2BE2 " data-bs-theme="dark">
+                            <i class="bi bi-book-half" style="font-size: 40px;"></i>
+                            <p>Consultar chamados</p>
+                        </a>
+                        <a href="index.php" class="btn botoes-opcoes-home" style="background-color: #FF4C4C" data-bs-theme="dark">
+                            <i class="bi bi-door-open" style="font-size: 40px;"></i>
+                            <p>Sair</p>
+                        </a>
+                </div>
+
             </div>
 
-        </div>
+        </main>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
     

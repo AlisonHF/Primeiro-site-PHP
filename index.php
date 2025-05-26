@@ -24,7 +24,7 @@
             }
         ?>
 
-        <div class="container mt-5" id="pagina-login">
+        <main class="container mt-5" id="pagina-login">
             <form id="form-login" action="scripts/valida_login.php" method="POST">
                 <h1 class="mb-5 text-center">Login</h1>
                 <div class="row mt-2">
@@ -47,7 +47,7 @@
                     <button class="btn btn-success form-control mt-3 ">Login</button>
                 </div>
             </form>
-        </div>
+        </main>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
 

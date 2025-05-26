@@ -24,22 +24,22 @@
             if(isset($_GET['status'])) {
                 $status = $_GET['status'];
             }
-
         ?>
+        
         <form action="scripts/enviar_chamado.php" method="POST" class="container mt-5 form-control p-5 bg-light text-dark">
             <h1 class="mb-3">Formulário de chamado</h1>
             <label class="form-label">Titulo</label>
-            <input id="titulo" class="form-control" name="titulo" type="text" placeholder="Ex: Impressora não liga">
+            <input id="titulo" class="form-control" name="titulo" type="text" placeholder="Ex: Impressora não liga" required>
             <label class="form-label">Tipo</label>
-            <select id="tipo" class="form-control" name="tipo">
-                <option disabled="disabled" selected="selected">Selecione uma opção</option>
+            <select id="tipo" class="form-control" name="tipo" required>
+                <option disabled="disabled" selected="selected" option="">Selecione uma opção</option>
                 <option value="Hardware">Hardware</option>
                 <option value="Impressora">Impressora</option>
                 <option value="Rede">Rede</option>
                 <option value="Outros">Outros</option>
             </select>
             <label class="form-label">Descrição</label>
-            <textarea id="descricao" name="descricao" type="text" class="form-control" rows="5" placeholder="Ex: Ao apertar o botão de ligar, a impressora não liga..."></textarea>
+            <textarea id="descricao" name="descricao" class="form-control" rows="5" placeholder="Ex: Ao apertar o botão de ligar, a impressora não liga..." required></textarea>
             <button class="btn btn-success mt-3" type="submit">Enviar chamado</button>
         </form>
 

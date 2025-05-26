@@ -19,44 +19,57 @@
         <?php 
             include_once('scripts/valida_sessao.php');
             include_once('assets/navbar.php');
+
+            $arquivo = fopen('bd/chamados.txt', 'r'); // Abre o arquivo 
+            $chamados = array();
+            $chamados_filtrados = array();
+
+            while(!feof($arquivo)){
+                $registro = fgets($arquivo); // Função que pega uma linha do documento
+
+                $informacoes = explode('|', $registro);
+
+                if (count($informacoes) < 3 ) { // Para pular a linha em branco
+                    continue;
+                }
+
+                if ($_SESSION['tipo_usuario'] === '1' && $informacoes[3] != $_SESSION['id_usuario'] ) {
+                    continue;
+                }
+                
+                $chamados_filtrados[] = explode('|', $registro);
+
+            }
+
+            fclose($arquivo); // Fecha o arquivo
         ?>
 
         <h1 class="text-center m-5">Consulta de chamados</h1>
 
         <hr class="linha-divisoria">
 
-        <?php
-            $arquivo = fopen('bd/chamados.txt', 'r'); // Abre o arquivo 
-            $chamados = array();
+        <main>
 
-            while(!feof($arquivo)){
-                $registro = fgets($arquivo); // Função que pega uma linha do documento
-                $chamados[] = $registro;
-            }
+            <?php if (empty($chamados_filtrados)): ?>
+                <h4 class="text-center"><p class="mt-3"><i class="bi bi-emoji-smile-fill" style="font-size: 48px"></i></p> Sem chamados em aberto...</h4>
+            
+            <?php else: ?>
 
-            fclose($arquivo); // Fecha o arquivo
+                <?php foreach($chamados_filtrados as $chamado): ?>
+                    <section>
+                        <div class="card m-3 bg-dark" data-bs-theme="dark">
+                            <div class="card-body">
+                                <h5 class="card-title"><?= $chamado[0] ?></h5>
+                                <h6 class="card-subtitle mb-2"><?= $chamado[1] ?></h6>
+                                <p class="card-text"><?= $chamado[2] ?></p>
+                            </div>
+                        </div>
+                    </section>
+                <?php endforeach ?>
+            
+            <?php endif ?>
 
-            foreach($chamados as $chamado){
-                $chamado_array = array();
-                $chamado_array = explode('|', $chamado); // Divide a linha nos | e coloca cada valor em um array
-                if (count($chamado_array) < 3 ) { // Para pular a linha em branco
-                    continue;
-                }
-
-                if ($_SESSION['tipo_usuario'] === '1' && $chamado_array[3] != $_SESSION['id_usuario'] ) {
-                        continue;
-                }
-
-                else {
-        ?>
-        <div class="card m-3 bg-dark" data-bs-theme="dark">
-            <div class="card-body">
-                <h5 class="card-title"><?= $chamado_array[0] ?></h5>
-                <h6 class="card-subtitle mb-2"><?= $chamado_array[1] ?></h6>
-                <p class="card-text"><?= $chamado_array[2] ?></p>
-            </div>
-        </div>
-        <?php }}?>
+        </main>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
     
