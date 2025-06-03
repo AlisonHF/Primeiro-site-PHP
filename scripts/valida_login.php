@@ -26,7 +26,7 @@
         header('Location: ..\home.php');
     } else {
         $_SESSION['autenticado'] = 'nao';
-        header('Location: index.php?login=erro1');
+        header('Location: ..\index.php?login=erro1');
     }
 
 ?>

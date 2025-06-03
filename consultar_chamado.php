@@ -17,31 +17,14 @@
     <body>
 
         <?php 
-            include_once('scripts/valida_sessao.php');
+            require_once('scripts/valida_sessao.php');
             include_once('assets/navbar.php');
+            require_once('scripts/bd_scripts.php');
 
-            $arquivo = fopen('bd/chamados.txt', 'r'); // Abre o arquivo 
-            $chamados = array();
-            $chamados_filtrados = array();
+            $bd = new BD($_SESSION['id_usuario']);
 
-            while(!feof($arquivo)){
-                $registro = fgets($arquivo); // Função que pega uma linha do documento
-
-                $informacoes = explode('|', $registro);
-
-                if (count($informacoes) < 3 ) { // Para pular a linha em branco
-                    continue;
-                }
-
-                if ($_SESSION['tipo_usuario'] === '1' && $informacoes[3] != $_SESSION['id_usuario'] ) {
-                    continue;
-                }
-                
-                $chamados_filtrados[] = explode('|', $registro);
-
-            }
-
-            fclose($arquivo); // Fecha o arquivo
+            $chamados_filtrados = $bd->pegarListaChamados(true, $_SESSION['tipo_usuario']);
+            
         ?>
 
         <h1 class="text-center m-5">Consulta de chamados</h1>
@@ -59,9 +42,9 @@
                     <section>
                         <div class="card m-3 bg-dark" data-bs-theme="dark">
                             <div class="card-body">
-                                <h5 class="card-title"><?= $chamado[0] ?></h5>
-                                <h6 class="card-subtitle mb-2"><?= $chamado[1] ?></h6>
-                                <p class="card-text"><?= $chamado[2] ?></p>
+                                <h5 class="card-title"><?= $chamado[1] ?></h5>
+                                <h6 class="card-subtitle mb-2"><?= $chamado[2] ?></h6>
+                                <p class="card-text"><?= $chamado[3] ?></p>
                             </div>
                         </div>
                     </section>

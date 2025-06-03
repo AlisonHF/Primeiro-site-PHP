@@ -1,6 +1,24 @@
-Impressora não liga|Impressora|A impressora não liga.|0
-Formatação de computador|Outros|Formatar computador com lentidão.|0
-Internet caindo|Rede|Internet caiu o dia todo.|1
-Titulo teste|Outros|testre 123|0
-Formatação de computador|Hardware|Formatar computador|1
-Titulo teste agora|Hardware|Teste agora|0
+0|Impressora não liga|Impressora|A impressora não liga.|0
+1|Formatação de computador|Outros|Formatar computador com lentidão.|0
+2|Internet caindo|Rede|Internet caiu o dia todo.|1
+3|Titulo teste|Outros|testre 123|0
+4|Formatação de computador|Hardware|Formatar computador|1
+5|SEGUNDO TITULO|Hardware|SEGUNDO TESTE|2
+6|TITULO TESTE|Hardware|DESCRICAO TESTE|2
+7|TITULO TESTE|Hardware|DESCRICAO TESTE|2
+8|TITULO TESTE|Hardware|DESCRICAO TESTE|2
+9|TITULO TESTE|Hardware|DESCRICAO TESTE|2
+10|TITULO TESTE|Hardware|DESCRICAO TESTE|2
+11|TITULO TESTE|Hardware|DESCRICAO TESTE|2
+12|TITULO TESTE|Hardware|DESCRICAO TESTE|2
+13|TITULO TESTE|Hardware|DESCRICAO TESTE|2
+14|TITULO TESTE|Hardware|DESCRICAO TESTE|2
+15|TITULO TESTE|Hardware|DESCRICAO TESTE|2
+16|Titulo escrito teste|Impressora|DESCRICAO TESTE IMPRESSORA|0
+17|TITULO TESTE 2|Outros|TESTE|0
+18|TESTE3|Rede|REDE TESTE|0
+19|teste321|Outros|eaease|0
+20|TESTE TESTE|Rede|tes te1213|0
+21|sad|Impressora|323|2
+22|TESTE TESTE|Hardware|2|2
+23|teste32|Hardware|fs|2

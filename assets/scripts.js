@@ -39,14 +39,17 @@ function destacaSecaoNavbar() {
         consultar: document.getElementById('link-consultar'),
     }
 
-    if (janela_atual === '/primeiro-site-php/home.php') {
+    if (janela_atual === '/Primeiro-site-PHP/home.php') {
         secoes.home.className += ' selecionado';
     }
-    else if (janela_atual === '/primeiro-site-php/abrir_chamado.php') {
+    else if (janela_atual === '/Primeiro-site-PHP/abrir_chamado.php') {
         secoes.abrir.className += ' selecionado';
     }
-    else if (janela_atual === '/primeiro-site-php/consultar_chamado.php') {
+    else if (janela_atual === '/Primeiro-site-PHP/consultar_chamado.php') {
         secoes.consultar.className += ' selecionado';
     }
 
+
+    console.log('Script destacasecao ativado');
+    console.log(janela_atual);
 }
