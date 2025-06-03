@@ -2,12 +2,16 @@
 
     class BD
     {
-
         const LOCALBD = __DIR__ ."/../bd/chamados.txt";
         public $id_usuario = null;
 
-        public function __construct($id_usuario=null) {
-            $this->id_usuario = $id_usuario;
+        public function __construct() {
+            if (session_status() == PHP_SESSION_NONE)
+            {
+                session_start();
+            }
+            
+            $this->id_usuario = $_SESSION['id_usuario'];
         }
 
         public function adicionarChamado($titulo, $tipo, $descricao)
@@ -86,7 +90,7 @@
             $arquivo = fopen(self::LOCALBD, 'w');
             $exclusao = false;
 
-            $chamados_indexados = array();
+            $chamados_ajustados = array();
 
             foreach($chamados as $id => $registro)
             {
@@ -97,7 +101,7 @@
                 }
                 else
                 {
-                    $chamados_indexados[] = "$id|$registro[0]|$registro[1]|$registro[2]|$registro[3]";
+                    $chamados_ajustados[] = "$id|$registro[0]|$registro[1]|$registro[2]|$registro[3]";
                     fwrite($arquivo, "$id|$registro[1]|$registro[2]|$registro[3]|$registro[4]");
                 }
                 
@@ -107,6 +111,27 @@
             $this->indexarChamados();
 
             return $exclusao;
+        }
+
+        public function selecionarChamado($indice)
+        {
+            $chamados = $this->pegarListaChamados();
+            $arquivo = fopen(self::LOCALBD, 'r');
+            $chamado_selecionado = array();
+
+            foreach($chamados as $id => $registro)
+            {
+                if ($indice == $id)
+                {
+                    $chamado_selecionado[] = $registro;
+                    break;
+                }
+                
+            }
+
+            fclose($arquivo);
+
+            return $chamado_selecionado;
         }
     }
 

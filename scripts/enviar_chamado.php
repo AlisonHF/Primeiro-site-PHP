@@ -8,7 +8,7 @@
     $tipo = $_POST['tipo'];
     $descricao = $_POST['descricao'];
 
-    $bd = new BD($id_usuario);
+    $bd = new BD();
     $bd->adicionarChamado($titulo, $tipo, $descricao);
 
 ?>

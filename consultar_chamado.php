@@ -33,7 +33,7 @@
             include_once('assets/modal.php');
             require_once('scripts/bd_scripts.php');
 
-            $bd = new BD($_SESSION['id_usuario']);
+            $bd = new BD();
 
             if(isset($_GET['status']))
             {
@@ -57,16 +57,21 @@
 
                 <?php foreach($chamados_filtrados as $chamado): ?>
                     <section>
-                        <form method="POST" action="scripts/excluir_chamado.php">
-                            <div class="card m-3 bg-dark" data-bs-theme="dark">
-                                <div class="card-body">
-                                    <h5 class="card-title"><?= $chamado[1] ?></h5>
-                                    <h6 class="card-subtitle mb-2"><?= $chamado[2] ?></h6>
-                                    <p class="card-text"><?= $chamado[3] ?></p>
+                        <div class="card m-3 bg-dark" data-bs-theme="dark">
+                            <div class="card-body">
+                                <h5 class="card-title"><?= $chamado[1] ?></h5>
+                                <h6 class="card-subtitle mb-2"><?= $chamado[2] ?></h6>
+                                <p class="card-text"><?= $chamado[3] ?></p>
+
+                                <form method="POST" action="scripts/excluir_chamado.php">
                                     <button name='excluir' value=<?= $chamado[0] ?> class="btn btn-danger mt-2"><i class="bi bi-x-octagon" style="font-size: 20px;"></i></button>
-                                </div>
+                                </form>
+
+                                <form method="GET" action="editar_chamado.php">
+                                    <button name='indice' class="btn btn-primary mt-2" value=<?= $chamado[0] ?>><i class="bi bi-pencil-square" style="font-size:20px;"></i></button>
+                                </form>
                             </div>
-                        </form>
+                        </div>
                     </section>
                 <?php endforeach ?>
             
