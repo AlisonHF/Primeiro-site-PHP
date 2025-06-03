@@ -18,7 +18,6 @@
                 document.getElementById('corpo-modal').innerHTML = descricao;
                 return modal;
             }
-
         </script>
         
         <title>Abrir chamado</title>
@@ -30,8 +29,10 @@
         <?php
             require_once('scripts/valida_sessao.php');
             include_once('assets/navbar.php');
+            include_once('assets/modal.php');
 
-            if(isset($_GET['status'])) {
+            if(isset($_GET['status']))
+            {
                 $status = $_GET['status'];
             }
         ?>
@@ -52,22 +53,6 @@
             <textarea id="descricao" name="descricao" class="form-control" rows="5" placeholder="Ex: Ao apertar o botão de ligar, a impressora não liga..." required></textarea>
             <button class="btn btn-success mt-3" type="submit">Enviar chamado</button>
         </form>
-
-        <div id="modal" class="modal" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="titulo-modal"></h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body" id="corpo-modal">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Ok</button>
-                </div>
-                </div>
-            </div>
-        </div>
 
         <!-- Verificação de status para mostrar no modal -->
         <?php if (isset($status)): ?>

@@ -6,7 +6,7 @@
         const LOCALBD = __DIR__ ."/../bd/chamados.txt";
         public $id_usuario = null;
 
-        public function __construct($id_usuario) {
+        public function __construct($id_usuario=null) {
             $this->id_usuario = $id_usuario;
         }
 
@@ -78,6 +78,35 @@
 
             fclose($arquivo);
 
+        }
+
+        public function excluirChamado($indice)
+        {
+            $chamados = $this->pegarListaChamados();
+            $arquivo = fopen(self::LOCALBD, 'w');
+            $exclusao = false;
+
+            $chamados_indexados = array();
+
+            foreach($chamados as $id => $registro)
+            {
+                if ($indice == $id)
+                {
+                    $exclusao = true;
+                    continue;
+                }
+                else
+                {
+                    $chamados_indexados[] = "$id|$registro[0]|$registro[1]|$registro[2]|$registro[3]";
+                    fwrite($arquivo, "$id|$registro[1]|$registro[2]|$registro[3]|$registro[4]");
+                }
+                
+            }
+
+            fclose($arquivo);
+            $this->indexarChamados();
+
+            return $exclusao;
         }
     }
 

@@ -1,5 +1,6 @@
 // Verifica e muda de cor os campos de login
-function verificaCamposLogin() {
+function verificaCamposLogin()
+{
     const PARAMS_LOGIN = new URLSearchParams(window.location.search); /* Construtor que pega os valores vindo de GET e POST da página */;
 
     campo_email = document.getElementById('email');
@@ -12,7 +13,8 @@ function verificaCamposLogin() {
 }
 
 // Verifica e muda de cor os campos de chamado
-function verificaCamposAbrirChamado() {
+function verificaCamposAbrirChamado()
+{
     const PARAMS_CHAMADO = new URLSearchParams(window.location.search);
 
     campo_titulo = document.getElementById('titulo');
@@ -24,13 +26,12 @@ function verificaCamposAbrirChamado() {
         campo_tipo.style = 'border: 2px solid red;';
         campo_descricao.style = 'border: 2px solid red;';
     }
-
-    console.log(`${campo_titulo}, ${campo_tipo}, ${campo_descricao}`);
 }
 
 
 // Destaca a seção atual na navbar
-function destacaSecaoNavbar() {
+function destacaSecaoNavbar()
+{
     janela_atual = window.location.pathname;
 
     secoes = {
@@ -48,8 +49,5 @@ function destacaSecaoNavbar() {
     else if (janela_atual === '/Primeiro-site-PHP/consultar_chamado.php') {
         secoes.consultar.className += ' selecionado';
     }
-
-
     console.log('Script destacasecao ativado');
-    console.log(janela_atual);
 }

@@ -19,7 +19,8 @@
         <?php
             include_once("assets/navbar.php");
 
-            if (isset($_GET['login'])) {
+            if (isset($_GET['login']))
+            {
                 $erro_login = $_GET['login'];
             }
         ?>
