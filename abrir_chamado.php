@@ -31,7 +31,7 @@
             include_once('assets/navbar.php');
             include_once('assets/modal.php');
 
-            if(isset($_GET['status']))
+            if(isset($_GET['status'])) // Verifica se foi redirecionado para essa página e qual é o status do redirecionamento
             {
                 $status = $_GET['status'];
             }
@@ -54,8 +54,7 @@
             <button class="btn btn-success mt-3" type="submit">Enviar chamado</button>
         </form>
 
-        <!-- Verificação de status para mostrar no modal -->
-        <?php if (isset($status)): ?>
+        <?php if (isset($status)): // Se foi redirecionado para essa página, mostra um modal por status ?>
             <?php if ($status === '0'): ?> 
                 <script>
                     document.addEventListener('DOMContentLoaded', function () {

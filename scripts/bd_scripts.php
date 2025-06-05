@@ -1,5 +1,12 @@
 <?php
 
+    /**
+     * Classe que representa o banco de dados da nossa aplicação
+     * 
+     * @class
+     * @author Alison Faria
+     * @since 1.0
+     */
     class BD
     {
         const LOCALBD = __DIR__ ."/../bd/chamados.txt";
@@ -10,11 +17,16 @@
             {
                 session_start();
             }
+
+            if (!file_exists(self::LOCALBD))
+            {
+                fopen(self::LOCALBD, 'x');
+            }
             
             $this->id_usuario = $_SESSION['id_usuario'];
         }
 
-        public function adicionarChamado($titulo, $tipo, $descricao)
+        public function adicionarChamado(string $titulo, string $tipo, string $descricao): void
         {
 
             $arquivo = fopen(self::LOCALBD, 'a');
@@ -41,7 +53,7 @@
 
         }
 
-        public function pegarListaChamados($filtrarporusuario = false, $tipo_usuario = null)
+        public function pegarListaChamados(bool $filtrarporusuario = false, string|null $tipo_usuario = null): array
         {
             $arquivo = fopen(self::LOCALBD, 'r');
             $chamados = array();
@@ -67,7 +79,11 @@
             return $chamados;
         }
         
-        private function indexarChamados()
+        /**
+         * @method
+         * Função responsável por estabelecer os ids dos chamados
+         */
+        private function indexarChamados(): void
         {
             $chamados = $this->pegarListaChamados();
             $arquivo = fopen(self::LOCALBD, 'w');
@@ -84,7 +100,7 @@
 
         }
 
-        public function excluirChamado($indice)
+        public function excluirChamado(string $indice): bool
         {
             $chamados = $this->pegarListaChamados();
             $arquivo = fopen(self::LOCALBD, 'w');
@@ -113,7 +129,7 @@
             return $exclusao;
         }
 
-        public function selecionarChamado($indice)
+        public function selecionarChamado(string $indice): array
         {
             $chamados = $this->pegarListaChamados();
             $arquivo = fopen(self::LOCALBD, 'r');
@@ -132,6 +148,36 @@
             fclose($arquivo);
 
             return $chamado_selecionado;
+        }
+
+        public function editarChamado(string $indice, string $titulo, string $tipo, string $descricao): bool
+        {
+            $registro_alterado = false;
+
+            if (empty($indice) || empty($titulo) || empty($tipo) || empty($descricao))
+            {
+                return $registro_alterado;
+            }
+
+            $indice = (int) $indice;
+            $chamados = $this->pegarListaChamados();
+            $arquivo = fopen(self::LOCALBD, 'w');
+            
+
+            foreach($chamados as $id => $registro) 
+            {
+                if ($id === $indice)
+                {
+                    fwrite($arquivo, "$id|$titulo|$tipo|$descricao|$this->id_usuario");
+                    $registro_alterado = true;
+                }
+                else
+                {
+                    fwrite($arquivo, "$id|$registro[1]|$registro[2]|$registro[3]|$registro[4]");
+                }
+            }
+
+            return $registro_alterado;
         }
     }
 

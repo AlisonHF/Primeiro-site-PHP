@@ -35,7 +35,7 @@
 
             $bd = new BD();
 
-            if(isset($_GET['status']))
+            if(isset($_GET['status'])) // Verifica se foi redirecionado para essa página e qual é o status do redirecionamento
             {
                 $status = $_GET['status'];
             } 
@@ -67,7 +67,7 @@
                                     <button name='excluir' value=<?= $chamado[0] ?> class="btn btn-danger mt-2"><i class="bi bi-x-octagon" style="font-size: 20px;"></i></button>
                                 </form>
 
-                                <form method="GET" action="editar_chamado.php">
+                                <form method="GET" action="alterar_chamado.php">
                                     <button name='indice' class="btn btn-primary mt-2" value=<?= $chamado[0] ?>><i class="bi bi-pencil-square" style="font-size:20px;"></i></button>
                                 </form>
                             </div>
@@ -79,7 +79,7 @@
 
         </main>
 
-        <?php if (isset($status)): ?>
+        <?php if (isset($status)): // Se foi redirecionado para essa página, mostra um modal por status ?>
             <?php if ($status === '0'): ?> 
                 <script>
                     document.addEventListener('DOMContentLoaded', function () {
@@ -92,6 +92,20 @@
                     document.addEventListener('DOMContentLoaded', function () {
                         modal = criaModal('Exclusão confirmada','O seu chamado foi excluido com sucesso!' );
                         modal.show()
+                    })
+                </script>
+            <?php elseif ($status === '2'): ?> 
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        modal = criaModal('Erro ao alterar o chamado', 'Ocorreu um erro ao alterar o chamado, reinicie a página e realize a alteração novamente');
+                        modal.show();
+                    })
+                </script>
+            <?php elseif ($status === '3'): ?> 
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        modal = criaModal('Chamado alterado com sucesso!', 'O chamado foi alterado com sucesso!');
+                        modal.show();
                     })
                 </script>
             <?php endif; ?>

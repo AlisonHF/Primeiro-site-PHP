@@ -19,8 +19,6 @@
         <?php
             require_once('scripts/valida_sessao.php');
             include_once('assets/navbar.php');
-
-            echo session_status();
         ?>
 
         <h1 class="text-center m-5"><i class="bi bi-tools"></i> HelpDesk</h1>

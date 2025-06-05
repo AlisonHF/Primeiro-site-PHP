@@ -1,3 +1,0 @@
-0|TITULO TESTE 2|Outros|TESTE|0
-1|TITULO TESTE 2|Outros|TESTE|0
-2|Impressora não liga|Impressora|Impressora não está ligando|0

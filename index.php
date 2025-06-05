@@ -41,7 +41,7 @@
                 <div class="text-danger text-center mt-2" style="font-weight:bold;">Usuário ou senha incorretos!</div>
 
                 <?php elseif(isset($erro_login) && $erro_login === 'erro2'): ?>
-                <div class="text-danger text-center mt-2" style="font-weight:bold;">Faça login para continuar a acessar o site!</div>
+                <div class="text-danger text-center mt-2" style="font-weight:bold;">Faça login para acessar o site!</div>
                 <?php endif; ?>
 
                 <div class="row mt-2">

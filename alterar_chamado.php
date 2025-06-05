@@ -28,29 +28,35 @@
 
         <?php
             require_once('scripts/bd_scripts.php');
+            require_once('scripts/valida_sessao.php');
+            include_once('assets/navbar.php');
+            include_once('assets/modal.php');
+
             $bd = new BD();
             
-            if(isset($_GET['indice']))
+            if(isset($_GET['indice'])) // Pega o indice do chamado selecionado, caso não existir volta para a página de consulta de chamados
             {
                 define('INDICE_SELECIONADO', $_GET['indice']);
 
                 $chamado_selecionado = $bd->selecionarChamado(INDICE_SELECIONADO);
             }
+            else 
+            {
+                header('Location: consultar_chamado.php?status=2');
+            }
             
-            require_once('scripts/valida_sessao.php');
-            include_once('assets/navbar.php');
-            include_once('assets/modal.php');
-
-            if(isset($_GET['status']))
+            if(isset($_GET['status'])) // Verifica se foi redirecionado para essa página e qual é o status do redirecionamento
             {
                 $status = $_GET['status'];
             }
+
         ?>
         
-        <form action="scripts/enviar_chamado.php" method="POST" class="container mt-5 form-control p-5 bg-light text-dark">
+        <form action="scripts/editar_chamado.php" method="POST" class="container mt-5 form-control p-5 bg-light text-dark">
             <h1 class="mb-3">Edição de chamado</h1>
+            <input id="indice" class="form-control" name="indice" style="display: none;">
             <label class="form-label">Titulo</label>
-            <input id="titulo" class="form-control" name="titulo" type="text" placeholder="Ex: Impressora não liga" required>
+            <input id="titulo" class="form-control" name="titulo" type="text" placeholder="Ex: Impressora não liga">
             <label class="form-label">Tipo</label>
             <select id="tipo" class="form-control" name="tipo" required>
                 <option disabled="disabled" selected="selected" option="">Selecione uma opção</option>
@@ -61,32 +67,14 @@
             </select>
             <label class="form-label">Descrição</label>
             <textarea id="descricao" name="descricao" class="form-control" rows="5" placeholder="Ex: Ao apertar o botão de ligar, a impressora não liga..." required></textarea>
-            <button class="btn btn-success mt-3" type="submit">Enviar chamado</button>
+            <button class="btn btn-success mt-3" type="submit">Alterar chamado</button>
         </form>
 
-        <!-- Verificação de status para mostrar no modal -->
-        <?php if (isset($status)): ?>
-            <?php if ($status === '0'): ?> 
-                <script>
-                    document.addEventListener('DOMContentLoaded', function () {
-                        modal = criaModal('Erro ao salvar', 'Preencha todos os campos antes de enviar o chamado!');
-                        modal.show();
-                    })
-                </script>
-            <?php elseif ($status === '1'): ?>
-                <script>
-                    document.addEventListener('DOMContentLoaded', function () {
-                        modal = criaModal('Chamado aberto','O seu chamado foi aberto com sucesso!' );
-                        modal.show()
-                    })
-                </script>
-            <?php endif; ?>
-        <?php endif; ?>
-
-        <?php if (isset($_GET['indice'])): ?>
+        <?php if (isset($_GET['indice'])): // Coloca os valores dos campos correspondentes do chamado ?>
             <script>
                 document.addEventListener('DOMContentLoaded', function ()
                 {
+                    document.getElementById('indice').value = "<?= $chamado_selecionado[0][0] ?>";
                     document.getElementById('titulo').value = "<?= $chamado_selecionado[0][1] ?>";
                     document.getElementById('tipo').value = "<?= $chamado_selecionado[0][2] ?>";
                     document.getElementById('descricao').value = "<?= $chamado_selecionado[0][3] ?>";
@@ -94,6 +82,17 @@
             </script>
         
         <?php endif ?>
+
+        <?php if (isset($status)): // Se foi redirecionado para essa página, mostra um modal por status ?>
+            <?php if ($status === '0'): ?> 
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        modal = criaModal('Erro ao salvar', 'Preencha todos os campos antes de enviar o chamado!');
+                        modal.show();
+                    })
+                </script>
+            <?php endif; ?>
+        <?php endif; ?> 
 
     </body>
 
