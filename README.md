@@ -35,3 +35,17 @@
   <li>Consulta e leitura de chamados</li>
   <li>Telas de modal interativas para melhor experiência do usuário</li>
 </ul>
+
+<h2>Telas do site</h2>
+
+<h3>Página Home</h3>
+<img src="https://raw.githubusercontent.com/AlisonHF/Site-Help-Desk/refs/heads/main/imagens/home.png" alt="Página home">
+
+<h3>Página envio de chamado</h3>
+<img src="https://raw.githubusercontent.com/AlisonHF/Site-Help-Desk/refs/heads/main/imagens/enviar_chamado.png" alt="Página de envio de chamados">
+
+<h3>Página de consulta de chamados</h3>
+<img src="https://raw.githubusercontent.com/AlisonHF/Site-Help-Desk/refs/heads/main/imagens/consulta%20.png" alt="Página de consulta de chamados">
+
+<h3>Página de alteração de chamados</h3>
+<img src="https://raw.githubusercontent.com/AlisonHF/Site-Help-Desk/refs/heads/main/imagens/editar_chamado.png" alt="Página de alteração de chamado">
